@@ -13,7 +13,7 @@
 #Какой самый большой делитель числа 600851475143, являющийся простым числом?
 
 # Worktime on Amazon microinstance: 0.002 s
-# Complexity: from O(log(N)) to O(sqrt(N))
+# Complexity: from O(log(N)) to O(sqrt(N)) to O(log(N)*sqrt(N))
 # Make Trial division method http://en.wikipedia.org/wiki/Trial_division
 
 
@@ -39,21 +39,17 @@ def main():
     #number factorization
     sqrtnum = int(num**0.5)
 
-    loop = True
-    while loop:
-        loop = False
+    answer = num
+    while num > 1:
         for i in range(2, sqrtnum+1, 1):
-            if num == i:
-                break
-
             if (num % i) == 0:
+                answer = num
                 num = num//i
-                loop = True
                 #print(i)
                 break
     
     print('Worktime: {:.6f}'.format(time.time()-start))
-    print('Answer: {}'.format(num))
+    print('Answer: {}'.format(answer))
 
     return 0
 
