@@ -13,7 +13,7 @@
 
 
 # Worktime on Amazon microinstance: 0.6 s
-# Complexity: N=999-100, len(x)=const, max()=O(N*log(N): O(N^2 * len(x) + N*log(N)) = O(N^2)
+# Complexity: N=999-100, len(x)=const, max()=O(N): O(N^2 * const + N) = O(N^2)
 
 import sys
 import threading
