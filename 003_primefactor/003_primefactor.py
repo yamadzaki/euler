@@ -35,17 +35,26 @@ def main():
 #    num = 13195 #Answer: 29 Time = 0.06
 #    num = 60013*2 
 #    num =  13
+    #num = 377 #Answer = 29 # 377 = 13*29 
+    #num = 572 #answer = 13
 
     #number factorization
     sqrtnum = int(num**0.5)
 
     answer = num
-    while num > 1:
+    loop = True
+    while loop:
+        loop = False
         for i in range(2, sqrtnum+1, 1):
+            if num == i:
+                answer = num 
+                break
+
             if (num % i) == 0:
-                answer = num
                 num = num//i
-                #print(i)
+                answer = num
+            #    print(i, num)
+                loop = True
                 break
     
     print('Worktime: {:.6f}'.format(time.time()-start))
