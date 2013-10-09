@@ -8,7 +8,7 @@
 # Problem description in Russian:
 # ...
 
-# Worktime on my computer =): ...
+# Worktime on Amazon microinstance:...
 # Complexity: O(?)
 
 
@@ -38,8 +38,8 @@ def main():
             i+=1
 
     #print(G) 
-    print('Number of vertices:', numofvertices, ', number of edges:', numofedges)
-    print('Time to load file: {:.6f}, len(G): {} '.format(time.time()-start, len(G)*len(G[0])))
+    print('Worktime: {:.6f}'.format(time.time()-start))
+    print('Answer: {}'.format(ans))
 
     return 0
 
