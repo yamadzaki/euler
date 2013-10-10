@@ -13,10 +13,12 @@
 #Какое самое маленькое число делится нацело на все числа от 1 до 20?
 
 # Worktime on Amazon microinstance: 0,0001 s
-# Complexity: O(N^2), constraint by prime numbers generator
+# Complexity: O(N^2), constraint by prime numbers generator. 
+
 
 #Using observation that we can decompose any number to prime dividers. And then compare with previous set of dividers.
-#We should add missing dividers and pass others.
+#We should add missing dividers and pass others.    
+#It is prime factorisation method.
 
 
 import sys
@@ -46,7 +48,7 @@ def main():
                   
     ans = 1
     for x in dividers:
-        ans = ans*x
+        ans *= x
 
     print('Worktime: {:.6f}'.format(time.time()-start))
     print('Answer: {}'.format(ans))
@@ -57,10 +59,6 @@ def main():
 def adddiv(dividers, tempdiv):
     '''To dividers add items from tempdiv if it not in dividers. 
     Dividers should be in order, tempdiv should be in reverse order!!!!!'''
-
-    if len(tempdiv) == 0:
-        return
-    
     i = 0
     j = len(tempdiv)-1
     while j >= 0:
@@ -84,7 +82,6 @@ class PrimesError(Exception):
 
 def makediv(x, primes):
     '''Function return list of prime dividers of x. Complexity: seems O(N*log(N)), but not shure.'''
-
     if x in primes:
         lst = list()
         lst.append(x)
@@ -103,12 +100,9 @@ def makediv(x, primes):
 
 def primegenerator(limit):
     '''Function return list of prime numbers. Complexity: O(limit^2)'''
-
     primes = list()
-
     for num in range(2, limit+1):
         isprime = True
-
         for pr in primes:
             if (num % pr) == 0:
                 isprime = False
