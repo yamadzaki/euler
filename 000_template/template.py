@@ -13,16 +13,11 @@
 
 
 import sys
-import threading
 import time
-#threading.stack_size(2**27)
-#sys.setrecursionlimit(2**25)
-
 
 def main():
     start = time.time()
 
-    #G = list()
     numofvertices, numofedges = 0, 0
 
     with open(sys.argv[1]) as infile:
@@ -45,7 +40,6 @@ def main():
 
 
 if __name__ == '__main__':
-    #    main()
-    thread = threading.Thread(target=main)
-    thread.start()    
+    main()
     
+
